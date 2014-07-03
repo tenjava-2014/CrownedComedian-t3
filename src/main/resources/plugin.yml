@@ -1,0 +1,3 @@
+name: CrownedComedian-t3
+main: com.tenjava.entries.CrownedComedian.t3.TenJava
+version: '${project.version}'
