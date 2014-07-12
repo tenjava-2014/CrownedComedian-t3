@@ -54,15 +54,16 @@ public class TenJava extends JavaPlugin {
 		public void run() {
 			
 			for(Entity e : Bukkit.getWorlds().get(0).getEntities()) {
-				Location l;
+				Bukkit.broadcastMessage("POP");
+				Location l = e.getLocation();
 				
-				do {
+				/*do {
 					int x = (int) Math.random() * 20;
 					int y = (int) Math.random() * 20;
 					int z = (int) Math.random() * 20;
 					l = e.getLocation().add(x, y, z);
 				} while (!l.getBlock().getType().equals(Material.AIR) & !l.getBlock().getRelative(BlockFace.DOWN).getType().equals(Material.AIR));  // check if it is on the ground
-				
+				*/
 				Bukkit.getPluginManager().callEvent(new SignSpawnEvent(l, Bukkit.getPluginManager().getPlugin("CrownedComedian-t3")));
 			}
 		}
@@ -112,8 +113,29 @@ public class TenJava extends JavaPlugin {
 	public void onEnable() {
 		Bukkit.getPluginManager().registerEvents(new PlayerListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new BlockListener(this), this);
-		Bukkit.getServer().getPluginManager().registerEvents(new EntityListener(this), this);
+		Bukkit.getPluginManager().registerEvents(new EntityListener(this), this);
 		
+		//Bukkit.getScheduler().scheduleSyncDelayedTask(this, getRunSigns(), 25 * 20);
+		Bukkit.getScheduler().runTaskTimer(this, new BukkitRunnable() {
+			
+			@Override
+			public void run() {
+				
+				for(Entity e : Bukkit.getWorlds().get(0).getEntities()) {
+					Location l = null;
+					
+					/*do {
+						int x = (int) Math.random() * 20;
+						int y = (int) Math.random() * 20;
+						int z = (int) Math.random() * 20;
+						l = e.getLocation().add(x, y, z);
+						Bukkit.broadcastMessage("failed");
+					} while (l.getBlock().getRelative(BlockFace.DOWN).getType().equals(Material.AIR));  // check if it is on the ground*/
+					
+					Bukkit.getPluginManager().callEvent(new SignSpawnEvent(l, Bukkit.getPluginManager().getPlugin("CrownedComedian-t3")));
+				}
+			}
+		}, 20 * 5, 20 * 15);
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

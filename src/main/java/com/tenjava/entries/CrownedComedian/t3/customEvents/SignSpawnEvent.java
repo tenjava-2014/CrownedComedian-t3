@@ -19,11 +19,12 @@ public class SignSpawnEvent extends Event {
 	public SignSpawnEvent(Location toSign, Plugin main) {
 		this.plugin = main;
 		
-		toSign.getBlock().setType(Material.SIGN_POST);
+		//toSign.getBlock().setType(Material.SIGN_POST);
 		Sign s = (Sign) toSign.getBlock().getState();
 		// add signText
 		
-		long next = (long) Math.random() * 100;  // <-- increase this
+		long next = (long) Math.random() * 10000;  // <-- increase this
+		Bukkit.broadcastMessage("pop next: " + Long.toString(next));
 		TenJava paradox = (TenJava) plugin;
 		Bukkit.getScheduler().runTaskLater(paradox, paradox.getRunSigns(), next);
 	}
