@@ -1,4 +1,4 @@
-package com.tenjava.entries.CrownedComedian.t3.events;
+package com.tenjava.entries.CrownedComedian.t3.eventListeners;
 
 import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
@@ -11,7 +11,7 @@ public class PlayerListener implements Listener {
 	public void onPlayerMove(PlayerMoveEvent e) {
 		double percent = Math.random();
 		
-		if(e.getPlayer().getLocation().getBlockY() <= 35) {  // undergroundish?
+		if(e.getPlayer().getLocation().getBlockY() <= 35) {  // underground-ish
 			
 			if(percent <= 0.01) {  // 1%
 				
@@ -22,6 +22,8 @@ public class PlayerListener implements Listener {
 					e.getPlayer().playSound(e.getPlayer().getLocation().add(x, y, z), Sound.EXPLODE, 1f, 1f);
 				}
 			}
+		} else {  // not underground-ish
+			
 		}
 	}
 }

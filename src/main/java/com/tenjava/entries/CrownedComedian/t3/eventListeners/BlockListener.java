@@ -1,4 +1,4 @@
-package com.tenjava.entries.CrownedComedian.t3.events;
+package com.tenjava.entries.CrownedComedian.t3.eventListeners;
 
 import org.bukkit.Sound;
 import org.bukkit.World.Environment;
