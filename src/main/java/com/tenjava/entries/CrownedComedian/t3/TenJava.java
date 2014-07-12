@@ -26,15 +26,13 @@ public class TenJava extends JavaPlugin {
 	 * ADD	permissions
 	 * ADD	commands!!!
 	 * ADD	toggleEventListener
-	 * ADD	creeper hiss
 	 * ADD	signs spawn
 	 * ADD	fire spawn
 	 * ADD	indev. removal
 	 * ADD	health removal
 	 * ADD	other?
-	 * ADD	Herobrine?
-	 * TST	CavePermission + Cmd
-	 * TST	plugin.yml
+	 * ADD	world specification to signspawn + firespawn
+	 * REMOVED	Herobrine
 	 */
 	
 	private FileConfiguration playerConfig = null;

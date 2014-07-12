@@ -41,7 +41,7 @@ public class CommandHandler {
 					ToggleInvetoryItemRemoval cmd = new ToggleInvetoryItemRemoval(null, plugin, sender, command, label, args);
 					answer = cmd.result();
 				} else if(args[0].equalsIgnoreCase("toggleSigns") && sender.hasPermission("SpookyEvents.cmd.toggleSigns")) {
-					ToggleSigns cmd = new ToggleSigns(null, plugin, sender, command, label, args);
+					ToggleSigns cmd = new ToggleSigns(plugin, sender, command, label, args);
 					answer = cmd.result();
 				}
 				
