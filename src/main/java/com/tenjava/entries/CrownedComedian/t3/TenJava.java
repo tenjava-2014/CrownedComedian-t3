@@ -2,6 +2,7 @@ package com.tenjava.entries.CrownedComedian.t3;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
@@ -48,17 +49,14 @@ public class TenJava extends JavaPlugin {
 	 * 
 	 * I have just altered them a little  :D
 	 */
+	@SuppressWarnings("deprecation")
 	public void reloadPlayerConfig(String playername) {
 	    if (playerConfigFile == null) {
 	    playerConfigFile = new File(getDataFolder(), playername + ".yml");
 	    }
 	    playerConfig = YamlConfiguration.loadConfiguration(playerConfigFile);
-	 
-	    // Look for defaults in the jar
-	    Reader defConfigStream = null;
-		try {
-			defConfigStream = new InputStreamReader(this.getResource(playername + ".yml"), "UTF8");
-		} catch (UnsupportedEncodingException e) {}
+	    
+	    InputStream defConfigStream = null;
 	    if (defConfigStream != null) {
 	        YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
 	        playerConfig.setDefaults(defConfig);
@@ -67,7 +65,7 @@ public class TenJava extends JavaPlugin {
 	
 	public FileConfiguration getPlayerConfig(String playername) {
 	    if (playerConfig == null) {
-	        reloadPlayerConfig(playername);
+			reloadPlayerConfig(playername);
 	    }
 	    return playerConfig;
 	}

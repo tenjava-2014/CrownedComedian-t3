@@ -3,23 +3,16 @@ package com.tenjava.entries.CrownedComedian.t3.eventListeners;
 import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 import com.tenjava.entries.CrownedComedian.t3.TenJava;
 
 public class PlayerListener implements Listener {
 	
-	private TenJava plugin;
+	//private TenJava plugin;
 	
 	public PlayerListener(TenJava main) {
-		this.plugin = main;
-	}
-	
-	@EventHandler
-	public void onPlayerJoinEvent(PlayerJoinEvent e) {
-		plugin.reloadPlayerConfig(e.getPlayer().getName());
-		plugin.savePlayerConfig(e.getPlayer().getName());
+		//this.plugin = main;
 	}
 	
 	@EventHandler

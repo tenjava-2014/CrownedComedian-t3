@@ -6,13 +6,23 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
+import com.tenjava.entries.CrownedComedian.t3.TenJava;
+
 public class BlockListener implements Listener {
+	
+	TenJava plugin;
+	
+	public BlockListener(TenJava main) {
+		this.plugin = main;
+	}
 	
 	@EventHandler
 	public void onBlockBreak(BlockBreakEvent e) {
 		double percent = Math.random();
 		
-		if(e.getPlayer().getLocation().getBlockY() <= 30 && e.getPlayer().getWorld().getEnvironment() == Environment.NORMAL) {
+		if(e.getPlayer().getLocation().getBlockY() <= 30
+				&& e.getPlayer().getWorld().getEnvironment() == Environment.NORMAL
+				&& plugin.getPlayerConfig(e.getPlayer().getName()).getBoolean("caveBombs")) {
 			
 			if(percent <= 0.08) {
 				double x = Math.random() * 20;
