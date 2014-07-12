@@ -21,11 +21,18 @@ public class CommandHandler {
 				answer = false;
 			} else if(args.length == 1) {
 				
-				if(args[0].equalsIgnoreCase("toggleCaveBombs") && sender instanceof Player && sender.hasPermission("SpookyEvents.cmd.toggleCaveBombsSelf")) {
+				if(args[0].equalsIgnoreCase("toggleCaveBombs")
+						&& sender instanceof Player
+						&& sender.hasPermission("SpookyEvents.cmd.toggleCaveBombsSelf")) {
+					
 					ToggleCaveBombs cmd = new ToggleCaveBombs((Player) sender, plugin, sender, command, label, args);
 					answer = cmd.result();
-				} else if(args[0].equalsIgnoreCase("toggleCreeperHiss")) {  // AND HAS PERMISSION!!!
-					//answer = new ToggleCreeperHiss().result();  // <-- hold on there cowboy!
+				} else if(args[0].equalsIgnoreCase("toggleCreeperHiss")
+						&& sender instanceof Player
+						&& sender.hasPermission("SpookyEvents.cmd.toggleCaveBombsSelf")) {
+					
+					ToggleCreeperHiss cmd = new ToggleCreeperHiss((Player) sender, plugin, sender, command, label, args);
+					answer = cmd.result();
 				}
 				
 			} else if(args.length == 2) {
