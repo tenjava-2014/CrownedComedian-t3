@@ -25,12 +25,14 @@ public class TenJava extends JavaPlugin {
 	/*				TODO
 	 * ADD	permissions
 	 * ADD	commands!!!
+	 * ADD	commandTab  <-- I almost forgot this one
 	 * ADD	toggleEventListener
-	 * ADD	signs spawn
-	 * ADD	fire spawn
-	 * ADD	indev. removal
-	 * ADD	health removal
+	 * FIN	signs spawn
+	 * FIN	fire spawn
+	 * FIN	indev. removal
+	 * FIN	health removal
 	 * ADD	other?
+	 * ADD	Endermen stare in End?
 	 * ADD	world specification to signspawn + firespawn
 	 * REMOVED	Herobrine
 	 */
