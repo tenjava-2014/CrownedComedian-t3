@@ -1,3 +1,8 @@
 name: CrownedComedian-t3
 main: com.tenjava.entries.CrownedComedian.t3.TenJava
 version: '${project.version}'
+
+commands:
+  spookyevents:
+  description: all commands + subcommands for the SpookyEvents Plugin
+  usage:/SpookyEvents <args>
