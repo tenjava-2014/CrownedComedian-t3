@@ -39,5 +39,5 @@ About
 ---------------------------------------
 
 this plugin incldes:
- * not much right now but soon!
+ * nothing right now but soon!
 
