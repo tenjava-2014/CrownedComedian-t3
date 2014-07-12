@@ -21,6 +21,7 @@ public class CommandHandler {
 				answer = false;
 			} else if(args.length == 1) {
 				
+				//checked in alphabetical order by args[0]
 				if(args[0].equalsIgnoreCase("toggleCaveBombs")
 						&& sender instanceof Player
 						&& sender.hasPermission("SpookyEvents.cmd.toggleCaveBombsSelf")) {
@@ -33,12 +34,20 @@ public class CommandHandler {
 					
 					ToggleCreeperHiss cmd = new ToggleCreeperHiss((Player) sender, plugin, sender, command, label, args);
 					answer = cmd.result();
-				} else if(args[0].equalsIgnoreCase("toggleInvetoryRemoval")) {
+				} else if(args[0].equalsIgnoreCase("toggleHealthRemoval")) {
+					sender.sendMessage(ChatColor.RED + "Too few arguments! A player name must be specified!");
+					answer = false;
+				} else if(args[0].equalsIgnoreCase("toggleInvetoryRemoval") && sender.hasPermission("SpookyEvents.cmd.toggleInventoryRemoval")) {
 					ToggleInvetoryItemRemoval cmd = new ToggleInvetoryItemRemoval(null, plugin, sender, command, label, args);
+					answer = cmd.result();
+				} else if(args[0].equalsIgnoreCase("toggleSigns") && sender.hasPermission("SpookyEvents.cmd.toggleSigns")) {
+					ToggleSigns cmd = new ToggleSigns(null, plugin, sender, command, label, args);
 					answer = cmd.result();
 				}
 				
 			} else if(args.length == 2) {
+				
+				//also checked in alphabetical order by args[0]
 				
 			} else if(args.length > 2) {
 				sender.sendMessage(ChatColor.RED + "Too many arguments!");

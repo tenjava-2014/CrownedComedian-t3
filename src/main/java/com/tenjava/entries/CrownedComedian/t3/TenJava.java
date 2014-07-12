@@ -96,7 +96,7 @@ public class TenJava extends JavaPlugin {
 	
 	
 	@SuppressWarnings("unused")
-	private void newRandom(long maxTime, final Event e) {
+	private BukkitRunnable newRandom(long maxTime, final Event e) {
 		final long rand = (long) (Math.random() * maxTime);
 		Bukkit.getScheduler().scheduleSyncDelayedTask(this, new BukkitRunnable() {
 			
