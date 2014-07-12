@@ -86,7 +86,7 @@ public class TenJava extends JavaPlugin {
 	
 	
 	public void onEnable() {
-		Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
+		Bukkit.getPluginManager().registerEvents(new PlayerListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new BlockListener(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new EntityListener(this), this);
 	}

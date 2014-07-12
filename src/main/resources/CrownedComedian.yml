@@ -1,0 +1,5 @@
+/an example PlayerConfig
+caveBombs: true
+creeperHiss: true
+healthRemoval: true
+inventoryRemoval: true
