@@ -9,7 +9,7 @@ import com.tenjava.entries.CrownedComedian.t3.events.PlayerListener;
 public class TenJava extends JavaPlugin {
 	
 	/*				TODO
-	 * ADD	Giants to nether
+	 * TST	Giants to nether
 	 * ADD	signs spawn
 	 * ADD	fire spawn
 	 * ADD	indev. removal
