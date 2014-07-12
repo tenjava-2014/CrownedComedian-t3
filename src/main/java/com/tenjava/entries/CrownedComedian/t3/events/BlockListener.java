@@ -11,6 +11,7 @@ public class BlockListener implements Listener {
 	@EventHandler
 	public void onBlockBreak(BlockBreakEvent e) {
 		double percent = Math.random();
+		
 		if(e.getPlayer().getLocation().getBlockY() <= 30 && e.getPlayer().getWorld().getEnvironment() == Environment.NORMAL) {
 			
 			if(percent <= 0.08) {

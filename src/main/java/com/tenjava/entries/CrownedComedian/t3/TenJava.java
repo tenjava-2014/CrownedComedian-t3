@@ -8,6 +8,16 @@ import com.tenjava.entries.CrownedComedian.t3.events.PlayerListener;
 
 public class TenJava extends JavaPlugin {
 	
+	/*				TODO
+	 * ADD	Giants to nether
+	 * ADD	signs spawn
+	 * ADD	fire spawn
+	 * ADD	indev. removal
+	 * ADD	health removal
+	 * ADD	other?
+	 * ADD	Herobrine?
+	 */
+	
 	public void onEnable() {
 		Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
 		Bukkit.getPluginManager().registerEvents(new BlockListener(), this);
