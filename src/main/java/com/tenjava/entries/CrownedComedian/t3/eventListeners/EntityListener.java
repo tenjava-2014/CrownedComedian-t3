@@ -8,8 +8,16 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
+import com.tenjava.entries.CrownedComedian.t3.TenJava;
+
 public class EntityListener implements Listener {
 	
+	private TenJava plugin;
+	
+	public EntityListener(TenJava main) {
+		this.plugin = main;
+	}
+
 	@EventHandler
 	public void onCreatureSpawn(CreatureSpawnEvent e) {
 		
@@ -26,7 +34,7 @@ public class EntityListener implements Listener {
 					}
 				}
 				
-				if(canSpawn) {
+				if(canSpawn && plugin.getConfig().getBoolean("spawnGiant")) {
 					double percent = Math.random();
 					
 					if(percent <= 0.1) {
