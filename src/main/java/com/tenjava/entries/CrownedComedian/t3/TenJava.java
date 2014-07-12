@@ -26,6 +26,7 @@ public class TenJava extends JavaPlugin {
 	/*				TODO
 	 * ADD	permissions
 	 * ADD	commands!!!
+	 * ADD	toggleEventListener
 	 * ADD	creeper hiss
 	 * ADD	signs spawn
 	 * ADD	fire spawn

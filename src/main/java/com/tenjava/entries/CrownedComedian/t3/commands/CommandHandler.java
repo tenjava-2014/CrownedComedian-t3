@@ -3,6 +3,7 @@ package com.tenjava.entries.CrownedComedian.t3.commands;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import com.tenjava.entries.CrownedComedian.t3.TenJava;
 
@@ -20,10 +21,10 @@ public class CommandHandler {
 				answer = false;
 			} else if(args.length == 1) {
 				
-				if(args[0].equalsIgnoreCase("toggleCaveBombs")) {
-					answer = new ToggleCaveBombs(null, plugin, sender, command, label, args).result();
-				} else if(args[0].equalsIgnoreCase("ToggleCreeperHiss")) {
-					answer = new ToggleCreeperHiss().result();
+				if(args[0].equalsIgnoreCase("toggleCaveBombs") && sender instanceof Player && sender.hasPermission("cmd.toggleCaveBombs")) {  // AND HAS PERMISSION!!!
+					
+				} else if(args[0].equalsIgnoreCase("toggleCreeperHiss")) {  // AND HAS PERMISSION!!!
+					//answer = new ToggleCreeperHiss().result();  // <-- hold on there cowboy!
 				}
 				
 			} else if(args.length == 2) {

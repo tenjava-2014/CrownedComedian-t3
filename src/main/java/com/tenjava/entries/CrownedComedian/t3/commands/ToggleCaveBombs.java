@@ -14,7 +14,11 @@ public class ToggleCaveBombs implements CommandAnswerable {
 	public ToggleCaveBombs(Player p, TenJava main, CommandSender sender, Command command, String label, String[] args) {
 		this.plugin = main;
 		
-		
+		if(p == null) {  // if the args.lenght == 1
+			
+		} else {  // the args.lenght must be 2
+			
+		}
 	}
 		
 	

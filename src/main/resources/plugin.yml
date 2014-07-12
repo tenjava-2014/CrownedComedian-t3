@@ -1,8 +1,28 @@
 name: CrownedComedian-t3
-main: com.tenjava.entries.CrownedComedian.t3.TenJava
 version: '${project.version}'
+description: adds scary effects/events to Minecraft
+author: CrownedComedian
+website: https://www.youtube.com/user/CrownedComedian
+main: com.tenjava.entries.CrownedComedian.t3.TenJava
+
 
 commands:
   spookyevents:
-  description: all commands + subcommands for the SpookyEvents Plugin
-  usage:/SpookyEvents <args>
+    description: all commands + subcommands for the SpookyEvents Plugin
+    permission: SpookyEvents.cmd.toggleCaveBombsSelf;
+    usage:/SpookyEvents <args>
+    
+permissions:
+  SpookyEvents.cmd.*;
+    description: access to all command permissions
+    default: op
+    children:
+      SpookyEvents.cmd.toggleCaveBombsOthers: true
+  SpookyEvents.cmd.toggleCaveBombsSelf;
+    description: access to toggle cave bombs on yourself
+    default: false
+  SpookyEvents.cmd.toggleCaveBombsOthers;
+    description: access to toggle cave bombs on other players
+    default: false
+      children: SpookyEvents.cmd.toggleCaveBombsSelf;
+    
