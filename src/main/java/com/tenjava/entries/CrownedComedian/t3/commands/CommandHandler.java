@@ -34,12 +34,19 @@ public class CommandHandler {
 					
 					ToggleCreeperHiss cmd = new ToggleCreeperHiss((Player) sender, plugin, sender, command, label, args);
 					answer = cmd.result();
+					
+				} else if(args[0].equalsIgnoreCase("toggleFire")) {
+					ToggleFire cmd = new ToggleFire(main, sender, command, label, args);
+					answer = cmd.result();
+					
 				} else if(args[0].equalsIgnoreCase("toggleHealthRemoval")) {
 					sender.sendMessage(ChatColor.RED + "Too few arguments! A player name must be specified!");
 					answer = false;
+					
 				} else if(args[0].equalsIgnoreCase("toggleInvetoryRemoval") && sender.hasPermission("SpookyEvents.cmd.toggleInventoryRemoval")) {
 					ToggleInvetoryItemRemoval cmd = new ToggleInvetoryItemRemoval(null, plugin, sender, command, label, args);
 					answer = cmd.result();
+					
 				} else if(args[0].equalsIgnoreCase("toggleSigns") && sender.hasPermission("SpookyEvents.cmd.toggleSigns")) {
 					ToggleSigns cmd = new ToggleSigns(plugin, sender, command, label, args);
 					answer = cmd.result();
