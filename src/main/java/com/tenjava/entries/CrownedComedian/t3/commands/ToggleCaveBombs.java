@@ -1,5 +1,6 @@
 package com.tenjava.entries.CrownedComedian.t3.commands;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -13,12 +14,17 @@ public class ToggleCaveBombs implements CommandAnswerable {
 	
 	public ToggleCaveBombs(Player p, TenJava main, CommandSender sender, Command command, String label, String[] args) {
 		this.plugin = main;
-		
-		if(p == null) {  // if the args.lenght == 1
-			
-		} else {  // the args.lenght must be 2
-			
+
+		if(plugin.getPlayerConfig(sender.getName()).getBoolean("caveBombs")) {
+			plugin.getPlayerConfig(sender.getName()).set("caveBombs", false);
+			sender.sendMessage(ChatColor.GREEN + "" + p.getName() + " can now sleep peacefully");
+		} else {
+			plugin.getPlayerConfig(sender.getName()).set("caveBombs", true);
+			sender.sendMessage(ChatColor.GREEN + "" + p.getName() + " won't know what hit him");
 		}
+		
+		plugin.savePlayerConfig(p.getName());
+		answer = true;
 	}
 		
 	

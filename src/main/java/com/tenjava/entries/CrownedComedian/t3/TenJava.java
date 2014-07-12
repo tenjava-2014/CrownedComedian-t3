@@ -34,6 +34,8 @@ public class TenJava extends JavaPlugin {
 	 * ADD	health removal
 	 * ADD	other?
 	 * ADD	Herobrine?
+	 * TST	CavePermission + Cmd
+	 * TST	plugin.yml
 	 */
 	
 	private FileConfiguration playerConfig = null;

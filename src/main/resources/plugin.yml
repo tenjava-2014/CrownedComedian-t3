@@ -9,20 +9,20 @@ main: com.tenjava.entries.CrownedComedian.t3.TenJava
 commands:
   spookyevents:
     description: all commands + subcommands for the SpookyEvents Plugin
-    permission: SpookyEvents.cmd.toggleCaveBombsSelf;
+    permission: SpookyEvents.cmd.toggleCaveBombsSelf
     usage:/SpookyEvents <args>
     
 permissions:
-  SpookyEvents.cmd.*;
+  SpookyEvents.cmd.*:
     description: access to all command permissions
     default: op
     children:
       SpookyEvents.cmd.toggleCaveBombsOthers: true
-  SpookyEvents.cmd.toggleCaveBombsSelf;
+  SpookyEvents.cmd.toggleCaveBombsSelf
     description: access to toggle cave bombs on yourself
     default: false
-  SpookyEvents.cmd.toggleCaveBombsOthers;
+  SpookyEvents.cmd.toggleCaveBombsOthers
     description: access to toggle cave bombs on other players
     default: false
-      children: SpookyEvents.cmd.toggleCaveBombsSelf;
+      children: SpookyEvents.cmd.toggleCaveBombsSelf
     
