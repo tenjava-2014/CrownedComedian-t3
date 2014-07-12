@@ -55,7 +55,7 @@ public class CommandHandler {
 			} else if(args.length == 2) {
 				
 				//also checked in alphabetical order by args[0]
-				
+				//add commands
 			} else if(args.length > 2) {
 				sender.sendMessage(ChatColor.RED + "Too many arguments!");
 				answer = false;
