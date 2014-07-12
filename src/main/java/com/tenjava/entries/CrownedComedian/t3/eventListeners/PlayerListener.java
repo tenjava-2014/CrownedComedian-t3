@@ -1,18 +1,35 @@
 package com.tenjava.entries.CrownedComedian.t3.eventListeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import com.tenjava.entries.CrownedComedian.t3.TenJava;
 
 public class PlayerListener implements Listener {
 	
-	//private TenJava plugin;
+	private TenJava plugin;
 	
 	public PlayerListener(TenJava main) {
-		//this.plugin = main;
+		this.plugin = main;
+	}
+	
+	@EventHandler
+	public void onPlayerLogin(final PlayerLoginEvent e) {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new BukkitRunnable() {
+			
+			@Override
+			public void run() {
+				plugin.getPlayerConfig(e.getPlayer().getName()).addDefault("caveBombs", true);
+				plugin.getPlayerConfig(e.getPlayer().getName()).addDefault("creeperHiss", true);
+				plugin.getPlayerConfig(e.getPlayer().getName()).addDefault("heathRemoval", true);
+				plugin.getPlayerConfig(e.getPlayer().getName()).addDefault("inventoryItemRemoval", true);
+			}
+		}, 20 * 1);  //1 second delay to finish event
 	}
 	
 	@EventHandler

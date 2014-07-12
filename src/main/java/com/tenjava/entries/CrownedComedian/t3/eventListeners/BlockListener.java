@@ -20,15 +20,23 @@ public class BlockListener implements Listener {
 	public void onBlockBreak(BlockBreakEvent e) {
 		double percent = Math.random();
 		
-		if(e.getPlayer().getLocation().getBlockY() <= 30
-				&& e.getPlayer().getWorld().getEnvironment() == Environment.NORMAL
-				&& plugin.getPlayerConfig(e.getPlayer().getName()).getBoolean("caveBombs")) {
+		if(e.getPlayer().getLocation().getBlockY() <= 30 && e.getPlayer().getWorld().getEnvironment() == Environment.NORMAL) {
 			
-			if(percent <= 0.08) {
-				double x = Math.random() * 20;
-				double y = Math.random() * 20;
-				double z = Math.random() * 20;
-				e.getPlayer().playSound(e.getPlayer().getLocation().add(x, y, z), Sound.EXPLODE, 1f, 1f);
+			if(plugin.getPlayerConfig(e.getPlayer().getName()).getBoolean("caveBombs")) {
+				
+				if(percent <= 0.08) {  // 8%
+					double x = Math.random() * 20;
+					double y = Math.random() * 20;
+					double z = Math.random() * 20;
+					e.getPlayer().playSound(e.getPlayer().getLocation().add(x, y, z), Sound.EXPLODE, 1f, 1f);
+				}
+			}
+			
+			if(plugin.getPlayerConfig(e.getPlayer().getName()).getBoolean("creeperHiss")) {
+				
+				if(percent <= 0.08) {  // also 8%
+					e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.CREEPER_HISS, 1f, 1f);
+				}
 			}
 		}
 	}

@@ -3,9 +3,6 @@ package com.tenjava.entries.CrownedComedian.t3;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
@@ -85,7 +82,7 @@ public class TenJava extends JavaPlugin {
 	
 	public void onEnable() {
 		Bukkit.getPluginManager().registerEvents(new PlayerListener(this), this);
-		Bukkit.getPluginManager().registerEvents(new BlockListener(), this);
+		Bukkit.getPluginManager().registerEvents(new BlockListener(this), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new EntityListener(this), this);
 	}
 	
@@ -93,6 +90,7 @@ public class TenJava extends JavaPlugin {
 		
 		return new CommandHandler(this, sender, command, label, args).result();
 	}
+	
 	
 	@SuppressWarnings("unused")
 	private void newRandom(long maxTime, final Event e) {
