@@ -33,6 +33,9 @@ public class CommandHandler {
 					
 					ToggleCreeperHiss cmd = new ToggleCreeperHiss((Player) sender, plugin, sender, command, label, args);
 					answer = cmd.result();
+				} else if(args[0].equalsIgnoreCase("toggleInvetoryRemoval")) {
+					ToggleInvetoryItemRemoval cmd = new ToggleInvetoryItemRemoval(null, plugin, sender, command, label, args);
+					answer = cmd.result();
 				}
 				
 			} else if(args.length == 2) {

@@ -3,6 +3,7 @@ package com.tenjava.entries.CrownedComedian.t3;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
@@ -38,6 +39,7 @@ public class TenJava extends JavaPlugin {
 	
 	private FileConfiguration playerConfig = null;
 	private File playerConfigFile = null;
+	private ArrayList<BukkitRunnable> runners = new ArrayList<BukkitRunnable>();
 	
 	
 	/*
@@ -84,11 +86,12 @@ public class TenJava extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new PlayerListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new BlockListener(this), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new EntityListener(this), this);
+		
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		
-		return new CommandHandler(this, sender, command, label, args).result();
+		return new CommandHandler(this, sender, command, label, args).result();  // <-- brace yourself
 	}
 	
 	
