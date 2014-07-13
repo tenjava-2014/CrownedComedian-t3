@@ -21,6 +21,8 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import com.tenjava.entries.CrownedComedian.t3.Runners.HealthRemovalRunner;
+import com.tenjava.entries.CrownedComedian.t3.Runners.SignSpawnRunner;
 import com.tenjava.entries.CrownedComedian.t3.commands.CommandHandler;
 import com.tenjava.entries.CrownedComedian.t3.customEvents.SignSpawnEvent;
 import com.tenjava.entries.CrownedComedian.t3.eventListeners.BlockListener;
@@ -32,7 +34,7 @@ public class TenJava extends JavaPlugin {
 	/*				TODO
 	 * ADD	permissions
 	 * ADD	commands!!!
-	 * ADD	commandTab  <-- I almost forgot this one
+	 * ADD	commandTab  <-- I forgot this one
 	 * ADD	toggleEventListener
 	 * FIN	signs spawn
 	 * FIN	fire spawn
@@ -54,16 +56,8 @@ public class TenJava extends JavaPlugin {
 		public void run() {
 			
 			for(Entity e : Bukkit.getWorlds().get(0).getEntities()) {
-				Bukkit.broadcastMessage("POP");
 				Location l = e.getLocation();
 				
-				/*do {
-					int x = (int) Math.random() * 20;
-					int y = (int) Math.random() * 20;
-					int z = (int) Math.random() * 20;
-					l = e.getLocation().add(x, y, z);
-				} while (!l.getBlock().getType().equals(Material.AIR) & !l.getBlock().getRelative(BlockFace.DOWN).getType().equals(Material.AIR));  // check if it is on the ground
-				*/
 				Bukkit.getPluginManager().callEvent(new SignSpawnEvent(l, Bukkit.getPluginManager().getPlugin("CrownedComedian-t3")));
 			}
 		}
@@ -115,27 +109,8 @@ public class TenJava extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new BlockListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new EntityListener(this), this);
 		
-		//Bukkit.getScheduler().scheduleSyncDelayedTask(this, getRunSigns(), 25 * 20);
-		Bukkit.getScheduler().runTaskTimer(this, new BukkitRunnable() {
-			
-			@Override
-			public void run() {
-				
-				for(Entity e : Bukkit.getWorlds().get(0).getEntities()) {
-					Location l = null;
-					
-					/*do {
-						int x = (int) Math.random() * 20;
-						int y = (int) Math.random() * 20;
-						int z = (int) Math.random() * 20;
-						l = e.getLocation().add(x, y, z);
-						Bukkit.broadcastMessage("failed");
-					} while (l.getBlock().getRelative(BlockFace.DOWN).getType().equals(Material.AIR));  // check if it is on the ground*/
-					
-					Bukkit.getPluginManager().callEvent(new SignSpawnEvent(l, Bukkit.getPluginManager().getPlugin("CrownedComedian-t3")));
-				}
-			}
-		}, 20 * 5, 20 * 15);
+		Bukkit.getScheduler().runTaskTimer(this, new HealthRemovalRunner(this), 20 * 10, 20 * 25);
+		Bukkit.getScheduler().runTaskTimer(this, new SignSpawnRunner(this), 20 * 10, 20 * 25);
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

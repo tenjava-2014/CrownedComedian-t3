@@ -30,8 +30,6 @@ public class PlayerListener implements Listener {
 					e.getPlayer().playSound(e.getPlayer().getLocation().add(x, y, z), Sound.EXPLODE, 1f, 1f);
 				}
 			}
-		} else {  // not underground-ish
-			
 		}
 	}
 }

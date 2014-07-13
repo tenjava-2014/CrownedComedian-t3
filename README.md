@@ -39,5 +39,5 @@ About
 ---------------------------------------
 
 this plugin incldes:
- * not much right now but soon!
+ * TOP SECRET STUFF
 
